@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriela Mistral: Portafolio de un Legado</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #EAE8E1; /* Beige claro, papel antiguo */
+            --text-color: #212121; /* Negro suave */
+            --accent-color: #B99768; /* Oro viejo */
+            --border-color: rgba(33, 33, 33, 0.15);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Anton', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .plastic-overlay::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/crissxcross.png');
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .hero-title {
+            font-size: clamp(4rem, 18vw, 16rem);
+            line-height: 0.85;
+            position: relative;
+            z-index: 2;
+        }
+
+        .border-b-custom {
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .border-t-custom {
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Animaciones de entrada */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s cubic-bezier(0.19, 1, 0.22, 1), transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .work-card {
+            transition: background-color 0.4s ease;
+        }
+        
+        .work-card:hover {
+            background-color: var(--accent-color) !important;
+            color: var(--bg-color);
+        }
+        
+        .work-card:hover .work-card-arrow {
+            transform: translateX(5px) rotate(-45deg);
+        }
+        
+        .work-card:hover .work-card-image {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
+        .work-card-arrow {
+            transition: transform 0.4s ease;
+        }
+
+        .work-card-image {
+            transition: transform 0.4s ease, filter 0.4s ease;
+        }
+
+        .loader {
+            border: 3px solid rgba(33, 33, 33, 0.2);
+            border-radius: 50%;
+            border-top: 3px solid var(--text-color);
+            width: 32px;
+            height: 32px;
+            animation: spin 1.5s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen w-full p-4 md:p-8 flex flex-col justify-between border-b-custom plastic-overlay overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="/wallpaper.jpg" alt="Valle del Elqui difuminado" class="w-full h-full object-cover filter blur-sm scale-110">
+            <div class="absolute inset-0 bg-[var(--bg-color)] opacity-50"></div>
+        </div>
+        <nav class="flex justify-between items-center text-sm relative z-10">
+            <div>
+                <span class="font-semibold">Gabriela Mistral</span>
+                <span class="opacity-60">/ Portafolio de un Legado</span>
+            </div>
+            <div class="opacity-60">2025</div>
+        </nav>
+        <div class="flex-grow flex items-center justify-center">
+             <h1 class="hero-title text-center text-[var(--text-color)] reveal">Mistral</h1>
+        </div>
+        <div class="flex justify-between items-end text-sm relative z-10">
+            <div class="max-w-xs opacity-80">
+                <p>Poeta, Educadora, Cónsul. Premio Nobel de Literatura.</p>
+                <p class="mt-1">Ilustración por: <a href="https://www.revistaanfibia.cl/autor/juan-fuji/" target="_blank" class="font-semibold hover:underline">Juan Fuji</a></p>
+            </div>
+            <a href="#biografia" class="font-semibold uppercase tracking-wider flex items-center gap-2">
+                Scroll
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+                </svg>
+            </a>
+        </div>
+    </header>
+    
+    <main>
+
+        <!-- Biografía Section -->
+        <section id="biografia" class="w-full p-4 md:p-8 grid grid-cols-1 lg:grid-cols-3 gap-8 border-b-custom">
+            <div class="lg:col-span-1 reveal">
+                <img src="https://images.unsplash.com/photo-1577744158869-3929b0538a8e?q=80&w=2574&auto=format&fit=crop" alt="Retrato de Gabriela Mistral" class="w-full h-full object-cover">
+            </div>
+            <div class="lg:col-span-2 flex flex-col justify-between">
+                <div>
+                    <h2 class="text-5xl md:text-7xl mb-6 reveal reveal-delay-1">La Voz de una Nación</h2>
+                    <p class="text-base md:text-lg leading-relaxed max-w-3xl opacity-80 reveal reveal-delay-2">
+                        Lucila Godoy Alcayaga, conocida mundialmente como Gabriela Mistral, fue mucho más que una poeta. Fue la conciencia de un continente, una educadora apasionada y una diplomática que llevó la voz de los sin voz a los rincones más lejanos del mundo. Nacida en el Valle del Elqui, su obra está impregnada de la aridez y la belleza de su tierra, del amor maternal, del dolor y de una fe inquebrantable en la humanidad.
+                    </p>
+                </div>
+                <div id="wikidata-info" class="mt-8 pt-6 border-t-custom reveal reveal-delay-3">
+                    <div class="flex items-center space-x-2 h-16">
+                        <div class="loader"></div>
+                        <p class="opacity-60">Cargando datos biográficos...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Obras Principales / Portfolio Section -->
+        <section id="obra" class="w-full p-4 md:p-8 border-b-custom">
+            <h2 class="text-5xl md:text-7xl mb-8 reveal">Obras Fundamentales</h2>
+            <div class="grid grid-cols-1">
+                <a href="https://es.wikipedia.org/wiki/Desolaci%C3%B3n_(libro)" target="_blank" class="work-card w-full p-6 grid grid-cols-1 md:grid-cols-4 gap-4 items-center border-b-custom bg-transparent reveal">
+                    <div class="md:col-span-3">
+                        <h3 class="text-3xl md:text-5xl">Desolación</h3>
+                        <p class="mt-2 opacity-60">1922 / Su primera gran obra, un mapa del dolor y la fe.</p>
+                    </div>
+                    <img src="https://placehold.co/400x300/EAE8E1/212121?text=Desolaci%C3%B3n" alt="Portada de Desolación" class="work-card-image w-full h-auto object-cover rounded-sm hidden md:block">
+                </a>
+                <a href="https://es.wikipedia.org/wiki/Ternura_(libro)" target="_blank" class="work-card w-full p-6 grid grid-cols-1 md:grid-cols-4 gap-4 items-center border-b-custom bg-transparent reveal reveal-delay-1">
+                     <div class="md:col-span-3">
+                        <h3 class="text-3xl md:text-5xl">Ternura</h3>
+                        <p class="mt-2 opacity-60">1924 / Un universo de rondas y cantos para los niños del mundo.</p>
+                    </div>
+                    <img src="https://placehold.co/400x300/EAE8E1/212121?text=Ternura" alt="Portada de Ternura" class="work-card-image w-full h-auto object-cover rounded-sm hidden md:block">
+                </a>
+                <a href="https://es.wikipedia.org/wiki/Tala_(libro)" target="_blank" class="work-card w-full p-6 grid grid-cols-1 md:grid-cols-4 gap-4 items-center border-b-custom bg-transparent reveal reveal-delay-2">
+                     <div class="md:col-span-3">
+                        <h3 class="text-3xl md:text-5xl">Tala</h3>
+                        <p class="mt-2 opacity-60">1938 / Un canto a la identidad y las raíces de América Latina.</p>
+                    </div>
+                    <img src="https://placehold.co/400x300/EAE8E1/212121?text=Tala" alt="Portada de Tala" class="work-card-image w-full h-auto object-cover rounded-sm hidden md:block">
+                </a>
+                <a href="https://es.wikipedia.org/wiki/Lagar_(libro)" target="_blank" class="work-card w-full p-6 grid grid-cols-1 md:grid-cols-4 gap-4 items-center bg-transparent reveal reveal-delay-3">
+                     <div class="md:col-span-3">
+                        <h3 class="text-3xl md:text-5xl">Lagar</h3>
+                        <p class="mt-2 opacity-60">1954 / Su testamento poético, una reflexión sobre la vida y la muerte.</p>
+                    </div>
+                    <img src="https://placehold.co/400x300/EAE8E1/212121?text=Lagar" alt="Portada de Lagar" class="work-card-image w-full h-auto object-cover rounded-sm hidden md:block">
+                </a>
+            </div>
+        </section>
+
+        <!-- Legado / The Three Souls Section -->
+        <section class="w-full p-4 md:p-8 grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--border-color)] border-b-custom">
+             <div class="bg-[var(--bg-color)] p-6 md:p-8 reveal">
+                <h3 class="text-3xl mb-4 flex items-center gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16"><path d="M15.708.292a1 1 0 0 1 .018 1.41l-1.5 1.5a1 1 0 0 1-1.416-.017l-1.5-1.5a1 1 0 1 1 1.415-1.415l.293.293.292-.293a1 1 0 0 1 1.415 0l.293.293.292-.293a1 1 0 0 1 1.414 0l.293.293.292-.293a1 1 0 0 1 1.06-.212zM2 1.556l3.785 3.785a1 1 0 0 1-.017 1.416l-1.5 1.5a1 1 0 0 1-1.415-1.415l.293-.293-.292.293a1 1 0 0 1-1.414 0l-.293-.293-.292.293a1 1 0 0 1-1.06.212A1 1 0 0 1 0 7.292V2.5a1 1 0 0 1 1-1h4.792a1 1 0 0 1 .753.342zM16 7.292a1 1 0 0 1-.342.753l-3.785 3.785a1 1 0 0 1-1.416-.017l-1.5-1.5a1 1 0 1 1 1.415-1.415l.293.293.292-.293a1 1 0 0 1 1.415 0l.293.293.292-.293a1 1 0 0 1 1.414 0l.293.293.292-.293a1 1 0 0 1 1.06-.212A1 1 0 0 1 16 7.292zM7.556 14l3.785-3.785a1 1 0 0 1 .017-1.416l-1.5-1.5a1 1 0 1 1-1.415 1.415l-.293-.293-.292.293a1 1 0 0 1-1.414 0l-.293-.293-.292.293a1 1 0 0 1-.212 1.06A1 1 0 0 1 7.292 16H2.5a1 1 0 0 1-1-1V9.208a1 1 0 0 1 .342-.753z"/></svg>
+                    Poeta
+                </h3>
+                <p class="opacity-80">Su poesía lírica, inspirada en emociones poderosas, se convirtió en un símbolo de las aspiraciones idealistas del mundo latinoamericano.</p>
+            </div>
+            <div class="bg-[var(--bg-color)] p-6 md:p-8 reveal reveal-delay-1">
+                <h3 class="text-3xl mb-4 flex items-center gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16"><path d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388 1.175.885.652 1.448 1.488 1.448 2.387 0 .863-.527 1.758-1.157 2.487l-7.968 7.968-2.097.262.262-2.096L8.5 2.687zM16 2.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 2.707V6.5a.5.5 0 0 0 1 0v-4z"/></svg>
+                    Educadora
+                </h3>
+                <p class="opacity-80">Con una vocación que traspasó fronteras, su trabajo en la reforma educativa de México es un testimonio de su fe en el poder transformador del conocimiento.</p>
+            </div>
+            <div class="bg-[var(--bg-color)] p-6 md:p-8 reveal reveal-delay-2">
+                <h3 class="text-3xl mb-4 flex items-center gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484-.08.08-.162.158-.242.234-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.185 1.068.346 1.114.714.044.354-.06.77-.258 1.148l-.017.027c-.523.82-.875 1.57-1.926 1.57-.723 0-1.262-.31-1.612-.624-.387-.342-.64-.843-.64-1.415 0-.642.27-1.187.676-1.644.319-.36.692-.636 1.069-.889l.396-.271c-.247.11-.482.214-.701.322-1.002.5-1.922.868-2.454 1.149-.552.29-.893.556-.893.97 0 .434.325.845.926 1.25.602.405 1.29.617 2.027.617 1.581 0 2.5-1.12 2.5-2.436 0-1.152-.653-1.943-1.448-2.354-.42-.215-.718-.396-.718-.747 0-.21.09-.444.27-.694.196-.28.48-.564.84-.861.56-.475 1.082-.832 1.598-1.096.627-.323 1.14-.543 1.518-.69.38-.149.615-.33.615-.59 0-.312-.416-.836-.926-1.566-.46-.667-.678-1.298-.678-1.943 0-1.054.582-1.943 1.58-1.943.78 0 1.317.354 1.704.81.443.51.718.99.718 1.625 0 .612-.27 1.16-.677 1.606-.319.342-.692.617-1.069.861l-.396.271c.247-.11.482-.215.701-.322 1.002-.5 1.922-.868 2.454-1.149.552-.29.893-.556.893-.97 0-.434-.325-.845-.926-1.25-.602-.405-1.29-.617-2.027-.617-1.581 0-2.5 1.12-2.5 2.436 0 1.152.653 1.943 1.448 2.354.42.215.718.396.718.747 0 .21-.09.444-.27.694-.196-.28-.48-.564-.84-.861-.56-.475-1.082-.832-1.598-1.096-.627-.323-1.14-.543-1.518-.69-.38-.149-.615-.33-.615-.59 0-.312.416-.836.926-1.566.46-.667.678-1.298-.678-1.943 0-1.054-.582-1.943-1.58-1.943-.78 0-1.317.354-1.704.81-.443.51-.718.99-.718 1.625 0 .612.27 1.16.677 1.606z"/></svg>
+                    Cónsul
+                </h3>
+                <p class="opacity-80">Como diplomática, defendió incansablemente los derechos de mujeres y niños, usando su posición como una plataforma para la justicia social.</p>
+            </div>
+        </section>
+
+        <!-- Nobel Prize Section -->
+        <section class="w-full p-4 md:p-8 border-b-custom">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div class="reveal">
+                    <h2 class="text-5xl md:text-7xl mb-4">El Nobel</h2>
+                    <p class="text-lg opacity-80 max-w-lg">El 10 de diciembre de 1945, en Estocolmo, su nombre resonó en la historia. No fue un premio para una mujer, sino para un continente que encontraba en sus versos su propia voz.</p>
+                </div>
+                <div class="bg-black text-[var(--bg-color)] p-6 md:p-10 reveal reveal-delay-1">
+                     <blockquote class="text-2xl md:text-3xl leading-snug font-light">"Por su poesía lírica que... ha hecho de su nombre un símbolo de las aspiraciones idealistas de todo el mundo latinoamericano."</blockquote>
+                    <p class="mt-4 text-right opacity-70">- Academia Sueca, 1945</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="w-full p-4 md:p-8 text-center text-sm opacity-60">
+        <p>&copy; 2025 / Un tributo digital al legado de Gabriela Mistral.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.reveal').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Wikidata Fetch
+            const endpointUrl = 'https://query.wikidata.org/sparql';
+            const sparqlQuery = `SELECT ?birthDate ?deathDate ?countryLabel ?occupationLabel
+            WHERE {
+              wd:Q83307 wdt:P569 ?birthDate;
+                         wdt:P570 ?deathDate;
+                         wdt:P27 ?country.
+              OPTIONAL { wd:Q83307 wdt:P106 ?occupation. }
+              SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],es,en". }
+            } LIMIT 5`;
+
+            const fullUrl = `${endpointUrl}?query=${encodeURIComponent(sparqlQuery)}`;
+
+            fetch(fullUrl, { headers: { 'Accept': 'application/sparql-results+json' } })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error en la red: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const bindings = data.results.bindings;
+                    const infoContainer = document.getElementById('wikidata-info');
+
+                    if (bindings && bindings.length > 0) {
+                        const first = bindings[0];
+                        const birthDate = new Date(first.birthDate.value).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+                        const deathDate = new Date(first.deathDate.value).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+                        const country = first.countryLabel.value;
+                        const occupations = [...new Set(bindings.map(b => b.occupationLabel?.value).filter(Boolean))];
+
+                        infoContainer.innerHTML = `
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                                <div>
+                                    <h4 class="font-semibold uppercase tracking-wider opacity-60 mb-1">Nacimiento</h4>
+                                    <p>${birthDate}</p>
+                                </div>
+                                 <div>
+                                    <h4 class="font-semibold uppercase tracking-wider opacity-60 mb-1">Nacionalidad</h4>
+                                    <p>${country}</p>
+                                </div>
+                                <div class="col-span-2">
+                                    <h4 class="font-semibold uppercase tracking-wider opacity-60 mb-1">Roles</h4>
+                                    <p>${occupations.join(', ')}</p>
+                                </div>
+                            </div>
+                        `;
+                    } else {
+                         infoContainer.innerHTML = `<p class="opacity-60">La información biográfica no está disponible en este momento.</p>`;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching Wikidata:', error);
+                    const infoContainer = document.getElementById('wikidata-info');
+                    infoContainer.innerHTML = `<p class="text-red-500">No se pudo cargar la información biográfica debido a un error de conexión.</p>`;
+                });
+        });
+    </script>
+</body>
+</html>
+
