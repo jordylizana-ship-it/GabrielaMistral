@@ -813,13 +813,13 @@
         
         const loadWorksFromWikipedia = async () => {
             const container = document.getElementById('obras-container');
-            const titles = "Desolación (libro)|Ternura (libro)|Tala (poemario)|Lagar (libro)";
+            const titles = "Sonetos de la muerte | Desolación |Ternura (libro)|Lagar (libro)";
             const apiUrl = `https://es.wikipedia.org/w/api.php?action=query&format=json&origin=*&prop=pageimages|extracts|info&pithumbsize=400&exintro=true&explaintext=true&inprop=url&titles=${encodeURIComponent(titles)}`;
             
             const fallbackYears = {
-                "Desolación (libro)": "1922",
+                "Sonetos de la muerte": "1915",
+                "Desolación": "1922",
                 "Ternura (libro)": "1924",
-                "Tala (poemario)": "1938",
                 "Lagar (libro)": "1954"
             };
 
@@ -867,7 +867,7 @@
             const container = document.getElementById('galeria-container');
             const commonsApi = 'https://commons.wikimedia.org/w/api.php?action=query&format=json&origin=*';
             const category = 'Category:Gabriela_Mistral';
-            const limit = 7; 
+            const limit = 16; 
 
             try {
                 const catResponse = await fetch(`${commonsApi}&list=categorymembers&cmtitle=${category}&cmtype=file&cmlimit=${limit}`);
